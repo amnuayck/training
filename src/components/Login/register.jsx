@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Input from "../common/useform/input";
 import Button from "../common/button";
 import DatePicker from "react-datepicker";
@@ -29,15 +29,25 @@ const Register = () => {
     formState: { errors },
     control,
   } = useForm({ resolver: yupResolver(schema) });
-  const fristProvincelist= ([
+
+  const [list, setlist] = useState([{ account: "amnuay" }]);
+  const fristProvincelist = [
     { _id: 0, name: "เลือกจังหวัด" },
     { _id: 1, name: "ปราจีนบุรี" },
     { _id: 2, name: "กทม" },
-  ]);
+  ];
   const onSubmit = async (data) => {
     alert(JSON.stringify(data));
     alert("success");
   };
+
+  useEffect(() => {
+    if (list.length > 0) {
+      reset({
+        account: list[0].account,
+      });
+    }
+  }, [reset, list]);
 
   return (
     <>
@@ -100,23 +110,23 @@ const Register = () => {
                 </div>
 
                 <div className="form-group mb-4">
-                      <label htmlFor="typename">วันที่ต้องการใช้งาน</label>
-                      <div>
-                        <Controller
-                          control={control}              
-                          name="startdate"                    
-                          render={({ field }) => (
-                            <DatePicker
-                              placeholderText="Select date"
-                              className={"form-control"}
-                              onChange={(date) => field.onChange(date)}
-                              selected={field.value}                                                                
-                              dateFormat="MM-dd-yyyy"
-                            />
-                          )}
-                        />              
-                      </div>
-                    </div>
+                  <label htmlFor="typename">วันที่ต้องการใช้งาน</label>
+                  <div>
+                    <Controller
+                      control={control}
+                      name="startdate"
+                      render={({ field }) => (
+                        <DatePicker
+                          placeholderText="Select date"
+                          className={"form-control"}
+                          onChange={(date) => field.onChange(date)}
+                          selected={field.value}
+                          dateFormat="MM-dd-yyyy"
+                        />
+                      )}
+                    />
+                  </div>
+                </div>
 
                 <div className="row">
                   <div className="col-6">
