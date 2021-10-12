@@ -30,13 +30,15 @@ const Register = () => {
     control,
   } = useForm({ resolver: yupResolver(schema) });
 
-  const [list, setlist] = useState([{ account: "amnuay" }]);
+  const [list, setlist] = useState([{ account: "amnuay" ,fname:"aaaa"}]);
   const fristProvincelist = [
     { _id: 0, name: "เลือกจังหวัด" },
     { _id: 1, name: "ปราจีนบุรี" },
     { _id: 2, name: "กทม" },
   ];
   const onSubmit = async (data) => {
+
+    // cal api 
     alert(JSON.stringify(data));
     alert("success");
   };
@@ -45,7 +47,10 @@ const Register = () => {
     if (list.length > 0) {
       reset({
         account: list[0].account,
+        fname : list[0].fname,
       });
+    }else {
+      reset({ account: ""})
     }
   }, [reset, list]);
 
