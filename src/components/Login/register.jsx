@@ -22,7 +22,8 @@ const Register = () => {
     formState: { errors },
     control,
   } = useForm({ resolver: yupResolver(schema) });
-  const onSubmit = (data) => {
+  const onSubmit  = async (data) => {
+    alert(JSON.stringify(data));
     console.log("data=", data);
   };
 
@@ -38,7 +39,7 @@ const Register = () => {
               </div>
               <div className="card-body ">
                 <p className="login-box-msg"></p>
-                <form>
+               
                   <div className="mb-4">
                   <Input
                   
@@ -91,7 +92,7 @@ const Register = () => {
                       />
                     </div>
                   </div>
-                </form>
+             
               </div>
             </div>
           </div>

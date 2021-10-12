@@ -46,16 +46,16 @@ const Register = ({
 
   const handleImageClick = () => {};
 
-  const onSubmit = (data) => {
+  const onSubmit = async  (data) => {
+      alert(JSON.stringify(data));
     console.log("data=", data);
   };
 
   return (
-
+<form onSubmit={(e) => e.preventDefault()}>
     <div className="row justify-content-center">
     <div className="col-lg-4 mt-4">
       <div className="card card-outline card-primary">
-    <form onSubmit={(e) => e.preventDefault()}>
       <div>
         {/* <div className="row">
           <div className="col-sm-6 col-xs-12">
@@ -293,10 +293,11 @@ const Register = ({
         </div> */}
         <Button label ={"register"} onClick={handleSubmit(onSubmit)}></Button>
       </div>
-    </form>
+   
     </div>
     </div>
     </div>
+    </form  >
   );
 };
 
