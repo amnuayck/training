@@ -27,7 +27,7 @@ const Input = ({ name, label, type = "text", register, required, errors ,placeho
         />
       </div>
       </InputWrapper>
-      {errors && <div className="alert alert-danger">{errors.message}</div>}
+      {/* {errors && <div className="alert alert-danger">{errors.message}</div>} */}
     </div>
   );
 };
