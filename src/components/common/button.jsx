@@ -1,7 +1,7 @@
 
 import React from "react";
 const Button = ({ label, color,onClick }) => {
-  console.log('youClick')
+
   return (
     <>
       {color === "red" ? (

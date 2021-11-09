@@ -1,16 +1,20 @@
 import React from 'react';
 import Input from '../common/input'
 import Button from '../common/button'
+
 import Select  from '../common/select';
+
+import {trucklistgroup} from '../common/datalist'
 
 const Login = () => {
 
 const handleLogin = () => {
     // call api
-    console.log('you click')
+  //  console.log('you click')
 
 }
 
+console.log('data=',trucklistgroup)
 
 
 
@@ -57,6 +61,8 @@ const handleLogin = () => {
           </div>
         </div>
       </div>
+
+    
 
         </>
       );
